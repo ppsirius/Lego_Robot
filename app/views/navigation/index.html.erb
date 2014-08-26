@@ -1,0 +1,79 @@
+<div class="row">
+  
+  <div class="col-md-6">
+  <h1>Panel sterowania robotem</h1><br />
+    <h4>Najpierw przejmij kontrole nad robotem</h4><br />
+    <%= link_to 'Przejmij robota', navigation_lock_path, :class => "btn-lg btn-danger" %><br />
+  </div>
+  <div class="col-md-6">       
+
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+
+<%= link_to "Login", new_user_session_path, :class => ''  %>&nbsp&nbsp&nbsp
+  <%= link_to "Sign up", new_user_registration_path, :class => ''  %> 
+  
+<% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <br />
+  <p>Twoja ilość kredytów to <%= count_credit %></p>
+  <%= link_to new_credit_path, :class => "btn-default btn-sm" do %>Dodaj kredyty
+  <% end %>
+  </div>
+
+</div>
+
+<div class="row margin">
+
+  <div class="col-md-6">
+    <h2>Poruszanie</h2><br />
+    <div class="col-md-12">
+      <%= link_to navigation_forward_path, :class => "btn-default btn-lg margin_do_przodu" do %>
+      <i class="glyphicon glyphicon-arrow-up"></i>&nbsp&nbsp&nbspDo przodu
+      <% end %><br /><br /><br />
+      <%= link_to navigation_slow_forward_path, :class => "btn-default btn-lg margin_do_przodu_wolniej" do %>
+      <i class="glyphicon glyphicon-arrow-up"></i>&nbsp&nbsp&nbspWolniej
+      <% end %>
+    </div>
+    <br />
+    <div class="col-md-12"><br /><br />
+      <%= link_to navigation_left_path, :class => "btn-default btn-lg" do %>
+      <i class="glyphicon glyphicon-arrow-left"></i>&nbsp&nbsp&nbspW lewo
+      <% end %>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <%= link_to navigation_right_path, :class => "btn-default btn-lg" do %>
+      <i class="glyphicon glyphicon-arrow-right"></i>&nbsp&nbsp&nbspW prawo
+      <% end %>
+    </div>
+
+    <div class="col-md-12"><br /><br />
+      <%= link_to navigation_slow_backward_path, :class => "btn-default btn-lg margin_do_tylu" do %>
+      <i class="glyphicon glyphicon-arrow-down"></i>&nbsp&nbsp&nbspWolniej
+      <% end %><br /><br /><br />
+      <%= link_to navigation_backward_path, :class => "btn-default btn-lg margin_do_tylu_wolniej" do %>
+      <i class="glyphicon glyphicon-arrow-down"></i>&nbsp&nbsp&nbspDo tyłu
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <h2>Akcje</h2><br />
+    <%= link_to navigation_run_path, :class => "btn-warning btn-lg" do %>
+    <i class="glyphicon glyphicon-pushpin"></i>&nbsp&nbsp&nbspAtakuj ostrzem
+    <% end %><br /><br /><br />
+    <%= link_to navigation_attack_path, :class => "btn-primary btn-lg" do %>
+    <i class="glyphicon glyphicon-pushpin"></i>&nbsp&nbsp&nbspPodjedź i atakuj
+    <% end %><br /><br /><br />
+    <h4><%= "Odległość tyłu robota do innego obiektu to: #{@prox}"%></h4>
+
+  </div>
+
+
+</div>
+
+</div>

@@ -1,0 +1,51 @@
+body {
+	background: #1C1C1C;
+	color: #fff;
+	font-family: 'Oswald', sans-serif;
+	padding-top: 15px;
+}
+
+body a {
+	color: #A4A4A4;
+}
+
+body a:hover {
+	color: #088A85;
+	text-decoration: none;
+}
+
+form {
+	color: #A4A4A4;
+}
+.btn-success {
+	color: #fff;
+} 
+
+.margin {
+	margin-top: 30px;
+}
+
+.notice {
+	color: red;
+}
+
+.margin_do_przodu {
+	margin-left: 90px;
+}
+
+.margin_do_przodu_wolniej {
+	margin-left: 96px;
+}
+
+.margin_do_tylu {
+	margin-left: 96px;
+}
+
+.margin_do_tylu_wolniej {
+	margin-left: 96px;
+}
+
+.login_margin {
+	margin-left: 300px;
+	margin-top: 20px;
+}
